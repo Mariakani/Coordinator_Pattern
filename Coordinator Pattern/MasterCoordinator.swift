@@ -32,4 +32,9 @@ class MasterCoordinator: Coordinator {
         navigationController.pushViewController(charVC, animated: true)
     }
 
+    func displayCharDetailsOnTapped(char: Character, characterName: String){
+        let charDetailVC = CharacterDetailsViewController.instantiate()
+        charDetailVC.coordinator = self
+        navigationController.pushViewController(charDetailVC, animated: true)
+    }
 }

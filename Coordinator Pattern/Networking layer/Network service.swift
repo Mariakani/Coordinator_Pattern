@@ -21,13 +21,6 @@ class ApiNetworkService{
         genericApijSonFetch(urlString: UrlString, completion: completion)
     }
     
-//    func fetchCharacters(completion: @escaping (Character?, Error?)->()){
-//
-//       let url = "https://rickandmortyapi.com/api/character/3"
-//        genericApijSonFetch(urlString: url, completion: completion)
-//    }
-//    
-    
     func genericApijSonFetch<T:Decodable>(urlString: String, completion: @escaping (T?, Error?) ->()){
         guard let url = URL(string: urlString)else{
              print("bad url format")

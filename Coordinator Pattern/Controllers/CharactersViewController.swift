@@ -11,7 +11,6 @@ import UIKit
 class CharactersViewController: UIViewController, Storyboarded{
 
     weak var coordinator: MasterCoordinator?
-    //var image: UIImage?
     var characters : [Character]?
     var charUrl: String?
     var episodeTitle: String?
@@ -56,19 +55,6 @@ class CharactersViewController: UIViewController, Storyboarded{
 
     }
     
-//    func loadImage(image: UIImage, url: URL) ->UIImage{
-//        
-//        DispatchQueue.global().async {[weak self] in
-//            if let data = try? Data(contentsOf: url){
-//                if let imge = UIImage(data: data){
-//                    image = imge
-//    
-//                }
-//            }
-//        }
-//        
-//        return image
-//    }
 }
 extension CharactersViewController: UITableViewDelegate, UITableViewDataSource{
 
@@ -79,12 +65,26 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "character", for: indexPath) as! CharacterCell
         cell.backgroundColor = .darkGray
-    cell.characterImage.backgroundColor = .purple
+   
     if let char = characters?[indexPath.item]{
-        cell.setUpCharacter(character: char)
+        cell.setUpCharacter(character: char, indexpath: indexPath)
     }
     return cell
     
     }
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if  let selectedCharacter = characters?[indexPath.item]{
+            ImageDownloadManager.shared.slowDownImageDownloadTaskPriority(character: selectedCharacter)
+        }
+        
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let selectedChar = characters?[indexPath.item]{
+            coordinator?.displayCharDetailsOnTapped(char: selectedChar, characterName: "hello world")
+        }
+        
+    }
 }
+
+
 
