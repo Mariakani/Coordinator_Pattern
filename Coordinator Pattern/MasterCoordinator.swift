@@ -9,7 +9,7 @@
 import UIKit
 
 class MasterCoordinator: Coordinator {
-    var childCoordinators = [Coordinator]()//yet to be implemented once requires
+    var childCoordinators = [Coordinator]()
     
     var navigationController: UINavigationController
     
@@ -34,6 +34,7 @@ class MasterCoordinator: Coordinator {
 
     func displayCharDetailsOnTapped(char: Character, characterName: String){
         let charDetailVC = CharacterDetailsViewController.instantiate()
+        charDetailVC.character = char
         charDetailVC.coordinator = self
         navigationController.pushViewController(charDetailVC, animated: true)
     }

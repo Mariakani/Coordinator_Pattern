@@ -13,7 +13,7 @@ final class ImageDownloadManager{
     private var completionHandler: ImgedownloadHandler?
     lazy var imageDownloadQueue: OperationQueue = {
         var queue = OperationQueue()
-        queue.name = "Alkaida image download" 
+        queue.name = "coordinate pattern image download"
         queue.qualityOfService = .userInteractive
         return queue
     }()
@@ -30,15 +30,13 @@ final class ImageDownloadManager{
         }
         
         if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString){
-            print("The images are already cached")
             self.completionHandler?(cachedImage, url, indexPath, nil)
         }else
         {
             if let operations = (imageDownloadQueue.operations as? [ImageDownloadOperation])?.filter({ $0.imageUrl.absoluteString == url.absoluteString && $0.isFinished == false && $0.isExecuting == true}), let operation = operations.first{
-                print("There is already operation running with this url")
                 operation.queuePriority = .high
             }else{
-                print("let start new operation")
+            
                 let operation = ImageDownloadOperation(url: url, indexPath: indexPath)
                 if indexPath == nil{
                     operation.queuePriority = .veryHigh
@@ -59,7 +57,6 @@ final class ImageDownloadManager{
         guard let url = URL(string: character.image)else{return}
         
         if let operations = (imageDownloadQueue.operations as? [ImageDownloadOperation])?.filter({ $0.imageUrl.absoluteString == url.absoluteString && $0.isFinished == false && $0.isExecuting == true}), let operation = operations.first{
-            print("slow down the priority of \(url)")
             operation.queuePriority = .low
         }
     }

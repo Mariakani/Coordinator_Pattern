@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol CharacterCellDelegate {
-    func cellDidLoadImage(_ indexPath: IndexPath)
-}
+//protocol CharacterCellDelegate {
+//    func cellDidLoadImage(_ indexPath: IndexPath)
+//}
 
 class CharacterCell: UITableViewCell {
 
@@ -20,18 +20,17 @@ class CharacterCell: UITableViewCell {
    
     @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
     
-    var delegate: CharacterCellDelegate?
+    //var delegate: CharacterCellDelegate?
     
     func setUpCharacter(character:Character, indexpath: IndexPath){
         self.activityIndictor.startAnimating()
         characterName.text =  character.name
         characterStatus.text = character.status
         
-        ImageDownloadManager.shared.downloadImage(character, indexPath: indexpath) {[weak self] (image, url, indexpath, err) in
+        ImageDownloadManager.shared.downloadImage(character, indexPath: indexpath) {[weak self](image, url, indexpath, err) in
                 DispatchQueue.main.async{
                     self?.activityIndictor.stopAnimating()
                     self?.characterImage.image = image
-                    self?.delegate?.cellDidLoadImage(indexpath!)
             }
         }
     }

@@ -8,20 +8,20 @@
 
 import UIKit
 
-class ApiNetworkService{
+class NetworkManager{
     
     private init(){
         
     }
-    static let shared = ApiNetworkService()
+    static let shared = NetworkManager()
     
-    func FetchR_MortyEpisodes(completion: @escaping (Episodes?, Error?)->()){
+func FetchR_MortyEpisodes(completion: @escaping (Episodes?, Error?)->()){
          let UrlString = "https://rickandmortyapi.com/api/episode"
         
         genericApijSonFetch(urlString: UrlString, completion: completion)
     }
     
-    func genericApijSonFetch<T:Decodable>(urlString: String, completion: @escaping (T?, Error?) ->()){
+func genericApijSonFetch<T:Decodable>(urlString: String, completion: @escaping (T?, Error?) ->()){
         guard let url = URL(string: urlString)else{
              print("bad url format")
             return

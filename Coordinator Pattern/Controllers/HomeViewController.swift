@@ -10,14 +10,10 @@ import UIKit
 
 class HomeViewController: UIViewController, Storyboarded{
     weak var coordinator: MasterCoordinator?
-    
     var episodeResults : [Result]?
-    var charactersArray:  [String] = []
-
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpNavbar()
         Parse()
     }
@@ -29,7 +25,7 @@ class HomeViewController: UIViewController, Storyboarded{
     }
     func Parse()
     {
-        ApiNetworkService.shared.FetchR_MortyEpisodes { (episodes, err) in
+        NetworkManager.shared.FetchR_MortyEpisodes { (episodes, err) in
             self.episodeResults = episodes?.results
             DispatchQueue.main.async {
                self.tableView.reloadData()

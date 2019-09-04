@@ -24,6 +24,7 @@
 		58643273230339C1005DBA29 /* R_MortyCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58643272230339C1005DBA29 /* R_MortyCharacters.swift */; };
 		5864327523044BC2005DBA29 /* EpisodesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864327423044BC2005DBA29 /* EpisodesCell.swift */; };
 		5864327723045E2B005DBA29 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864327623045E2B005DBA29 /* CharacterCell.swift */; };
+		5886A2DD23072823007A5DD5 /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5886A2DC23072823007A5DD5 /* profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		58643272230339C1005DBA29 /* R_MortyCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R_MortyCharacters.swift; sourceTree = "<group>"; };
 		5864327423044BC2005DBA29 /* EpisodesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesCell.swift; sourceTree = "<group>"; };
 		5864327623045E2B005DBA29 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		5886A2DC23072823007A5DD5 /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		5864324F2301A0D6005DBA29 /* Coordinator Pattern */ = {
 			isa = PBXGroup;
 			children = (
+				5886A2DB230727E8007A5DD5 /* customs files */,
 				5864AB8F2306115800053ABF /* DownloadManager */,
 				5864AB8E2305F94600053ABF /* Controllers */,
 				5864AB8D2305F90B00053ABF /* Views */,
@@ -138,6 +141,14 @@
 				581A81352304A111000B1B3F /* ImageDownloadManager.swift */,
 			);
 			path = DownloadManager;
+			sourceTree = "<group>";
+		};
+		5886A2DB230727E8007A5DD5 /* customs files */ = {
+			isa = PBXGroup;
+			children = (
+				5886A2DC23072823007A5DD5 /* profile.swift */,
+			);
+			path = "customs files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +225,7 @@
 				58643273230339C1005DBA29 /* R_MortyCharacters.swift in Sources */,
 				586432692301D8F6005DBA29 /* CharactersViewController.swift in Sources */,
 				586432532301A0D6005DBA29 /* HomeViewController.swift in Sources */,
+				5886A2DD23072823007A5DD5 /* profile.swift in Sources */,
 				5864327723045E2B005DBA29 /* CharacterCell.swift in Sources */,
 				586432672301A6F1005DBA29 /* MasterCoordinator.swift in Sources */,
 				5864327523044BC2005DBA29 /* EpisodesCell.swift in Sources */,

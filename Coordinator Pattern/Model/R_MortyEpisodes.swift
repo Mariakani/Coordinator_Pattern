@@ -8,22 +8,19 @@
 
 import UIKit
 
-struct Episodes: Decodable
-{
+struct Episodes: Decodable{
     var Info: Info?
     var results: [Result]
 }
 
-struct Result: Decodable
-{
+struct Result: Decodable{
     var id: Int
     var name: String
     var air_date: String
     var characters: [String]
 }
 
-struct Info:Decodable
-{
+struct Info:Decodable{
     var count: Int
     var pages: Int
     var next: String
