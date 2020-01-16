@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, Storyboarded{
     
     func setUpNavbar(){
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Rick & Morty Shows"
+        navigationItem.title = "Rick_Morty Episodes"
     }
     func Parse()
     {

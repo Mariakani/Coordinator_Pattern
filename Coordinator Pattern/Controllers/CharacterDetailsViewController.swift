@@ -26,11 +26,14 @@ class CharacterDetailsViewController: UIViewController, Storyboarded{
     var character: Character?
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = character?.name
         if let char = character{
             setUpCharacterDetails(char: char)
         }
         
     }
+    
+    
 func setUpCharacterDetails(char: Character){
     characterName.text = char.name
     Status.text = char.status

@@ -38,7 +38,6 @@ class CharactersViewController: UIViewController, Storyboarded{
             guard let data = data else{return}
             
             do{
-                
                 let characters = try? JSONDecoder().decode([Character].self, from: data)
                 if let char = characters{
         
@@ -46,7 +45,6 @@ class CharactersViewController: UIViewController, Storyboarded{
                     self.characters?.sort{ $0.created < $1.created
                     }
                 }
-                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -55,7 +53,6 @@ class CharactersViewController: UIViewController, Storyboarded{
             }
             }.resume()
     }
-    
 }
 extension CharactersViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,7 +77,6 @@ extension CharactersViewController: UITableViewDelegate, UITableViewDataSource{
         if let selectedChar = characters?[indexPath.item]{
             coordinator?.displayCharDetailsOnTapped(char: selectedChar, characterName: selectedChar.name)
         }
-
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
